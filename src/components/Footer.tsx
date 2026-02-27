@@ -7,19 +7,12 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-12">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <span
-                className="font-black text-2xl text-[#1D1F2D] tracking-tight"
-                style={{ fontFamily: 'Poppins, sans-serif' }}
-              >
-                IVNA
-              </span>
-              <div className="flex gap-[2px] items-center mt-0.5">
-                <div className="w-2 h-2 rounded-full bg-[#FF3D00]"></div>
-                <div className="w-2 h-2 rounded-full bg-[#FFB800]"></div>
-                <div className="w-2 h-2 rounded-full bg-[#00C853]"></div>
-                <div className="w-2 h-2 rounded-full bg-[#2979FF]"></div>
-              </div>
+            <div className="flex items-center mb-4">
+              <img
+                src="/images/ivna logo.png"
+                alt="IVNA Logo"
+                className="h-10 w-auto object-contain"
+              />
             </div>
             <p className="text-xs leading-relaxed text-gray-500 max-w-[200px]">
               Transforming home care with professional AI-powered solutions designed for agencies.

@@ -1,57 +1,65 @@
 // BundlesSection - Two large bundle cards side by side
+const bundles = [
+  {
+    bg: "/images/Rectangle 135.png",
+    title: "The Ultimate\nInhome care Bundle",
+    subtitle: "Stay in control with a unified view\nof all your business",
+  },
+  {
+    bg: "/images/Rectangle 153.png",
+    title: "The Ultimate Business\ndevelopment AI Bundle",
+    subtitle: "Stay in control with a unified view\nof all your business",
+  },
+];
+
 const BundlesSection = () => {
   return (
     <section className="py-16 bg-white relative overflow-hidden">
-      {/* Subtle wave decoration */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 opacity-30 pointer-events-none" style={{
-        background: 'linear-gradient(0deg, #f0f4ff 0%, transparent 100%)'
-      }} />
+      {/* Subtle wave decoration at bottom */}
+      <div
+        className="absolute bottom-0 left-0 right-0 pointer-events-none"
+        style={{
+          height: '120px',
+          background: 'url(/images/wave-decoration.svg) bottom/cover no-repeat',
+          opacity: 0.15,
+        }}
+      />
 
       <div className="w-full max-w-[1440px] mx-auto px-6 xl:px-16 relative z-10">
         <div className="grid md:grid-cols-2 gap-6">
-          {/* Bundle 1 - In-home Care */}
-          <div className="rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-xl transition-shadow duration-300 group">
-            <img
-              src="/images/Frame 5.png"
-              alt="The Ultimate Inhome care Bundle"
-              className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-500"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.style.display = 'none';
-                const parent = target.parentElement;
-                if (parent) {
-                  parent.style.background = 'linear-gradient(135deg, #0d47a1, #1976d2)';
-                  parent.style.minHeight = '220px';
-                  parent.style.display = 'flex';
-                  parent.style.alignItems = 'center';
-                  parent.style.justifyContent = 'center';
-                  parent.innerHTML = '<div style="color:white;text-align:center;padding:32px"><h3 style="font-size:1.5rem;font-weight:700;margin-bottom:8px">The Ultimate Inhome care Bundle</h3><p style="opacity:0.7;font-size:0.9rem">Stay in control with a unified view of all your business</p></div>';
-                }
-              }}
-            />
-          </div>
+          {bundles.map((bundle, i) => (
+            <div
+              key={i}
+              className="relative rounded-2xl overflow-hidden cursor-pointer group shadow-lg hover:shadow-2xl transition-shadow duration-300"
+              style={{ minHeight: '240px' }}
+            >
+              {/* Background image */}
+              <img
+                src={bundle.bg}
+                alt=""
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
+              />
 
-          {/* Bundle 2 - Business AI */}
-          <div className="rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-xl transition-shadow duration-300 group">
-            <img
-              src="/images/Frame 7.png"
-              alt="The Ultimate Business development AI Bundle"
-              className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-500"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.style.display = 'none';
-                const parent = target.parentElement;
-                if (parent) {
-                  parent.style.background = 'linear-gradient(135deg, #4a148c, #6a1b9a)';
-                  parent.style.minHeight = '220px';
-                  parent.style.display = 'flex';
-                  parent.style.alignItems = 'center';
-                  parent.style.justifyContent = 'center';
-                  parent.innerHTML = '<div style="color:white;text-align:center;padding:32px"><h3 style="font-size:1.5rem;font-weight:700;margin-bottom:8px">The Ultimate Business development AI Bundle</h3><p style="opacity:0.7;font-size:0.9rem">Stay in control with a unified view of all your business</p></div>';
-                }
-              }}
-            />
-          </div>
+              {/* Dark overlay for text readability */}
+              <div className="absolute inset-0 bg-black/20" />
+
+              {/* Text content */}
+              <div className="relative z-10 flex flex-col justify-center items-center text-center h-full px-10 py-12">
+                <h3
+                  className="text-white font-bold text-2xl md:text-3xl leading-snug mb-3"
+                  style={{ fontFamily: 'Poppins, sans-serif', whiteSpace: 'pre-line' }}
+                >
+                  {bundle.title}
+                </h3>
+                <p
+                  className="text-white/75 text-sm leading-relaxed"
+                  style={{ whiteSpace: 'pre-line' }}
+                >
+                  {bundle.subtitle}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

@@ -3,46 +3,38 @@
 
 const topRowProducts = [
   {
-    image: "/images/Rectangle 116.png",
+    image: "/images/Group 172.jpg",
     alt: "Caregiver Onboarding",
-    badge: "/images/Rectangle 149.png",
-    badgeAlt: "Caregiver Onboarding Badge",
   },
   {
-    image: "/images/Rectangle 117.png",
+    image: "/images/Group 173.jpg",
     alt: "Client Assessment",
-    badge: "/images/Rectangle 108.png",
-    badgeAlt: "Client Assessment Badge",
   },
   {
-    image: "/images/Rectangle 118.png",
+    image: "/images/Group 174.jpg",
     alt: "VoicaAI",
-    badge: "/images/Voica_04-11 1.png",
-    badgeAlt: "VoicaAI Badge",
   },
   {
-    image: "/images/Rectangle 148.png",
+    image: "/images/Group 175.jpg",
     alt: "Pulse Board",
-    badge: "/images/Pulseboard-02 1.png",
-    badgeAlt: "Pulseboard Badge",
   },
 ];
 
 const bottomRowProducts = [
   {
-    image: "/images/Rectangle 150.png",
+    image: "/images/Group 176.jpg",
     alt: "Caregiver Onboarding Brand",
   },
   {
-    image: "/images/Rectangle 151.png",
+    image: "/images/Group 177.jpg",
     alt: "Chatbot",
   },
   {
-    image: "/images/Rectangle 152.png",
+    image: "/images/Group 178.jpg",
     alt: "VoicaAI Brand",
   },
   {
-    image: "/images/Rectangle 153.png",
+    image: "/images/Group 179.jpg",
     alt: "Pulse Board Brand",
   },
 ];
@@ -80,24 +72,11 @@ const ProductsGrid = () => {
                   (e.target as HTMLImageElement).src = 'https://placehold.co/400x300/e2e8f0/94a3b8?text=' + encodeURIComponent(product.alt);
                 }}
               />
-              {/* Badge overlay at bottom-left */}
-              {product.badge && (
-                <div className="absolute bottom-3 left-3">
-                  <img
-                    src={product.badge}
-                    alt={product.badgeAlt}
-                    className="h-10 w-auto object-contain drop-shadow-lg"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).style.display = 'none';
-                    }}
-                  />
-                </div>
-              )}
             </div>
           ))}
         </div>
 
-        {/* Bottom Row - Brand cards (4 col) */}
+        {/* Bottom Row - Brand cards (3 col) */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
           {bottomRowProducts.map((product, i) => (
             <div
@@ -117,11 +96,11 @@ const ProductsGrid = () => {
         </div>
 
         {/* Know more button */}
-        <div className="text-center mt-10">
+        {/* <div className="text-center mt-10">
           <button className="border border-gray-300 bg-white hover:bg-gray-50 text-gray-700 px-8 py-2.5 rounded-lg text-sm font-medium transition-colors shadow-sm">
             Know more
           </button>
-        </div>
+        </div> */}
       </div>
     </section>
   );

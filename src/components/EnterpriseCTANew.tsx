@@ -1,12 +1,11 @@
-// EnterpriseCTA - "Enterprise-Grade Applications Built for Better Care Outcomes"
-// Blue gradient background with dot pattern
+// EnterpriseCTANew - for home-new page with "new home cta bg.jpg" (dark charcoal)
 
-const EnterpriseCTA = () => {
+const EnterpriseCTANew = () => {
   return (
     <section className="py-20 relative overflow-hidden">
-      {/* Rectangle 147 background image */}
+      {/* new home cta bg image */}
       <img
-        src="/images/Rectangle 147.jpg"
+        src="/images/new home cta bg.jpg"
         alt=""
         className="absolute inset-0 w-full h-full object-cover pointer-events-none"
       />
@@ -21,7 +20,7 @@ const EnterpriseCTA = () => {
           <br />
           Built for Better Care Outcomes
         </h2>
-        <button className="bg-white text-[#0052FF] hover:bg-gray-50 px-8 py-3 rounded-lg text-sm font-semibold shadow-sm transition-colors">
+        <button className="bg-white text-gray-900 hover:bg-gray-100 px-8 py-3 rounded-lg text-sm font-semibold shadow-sm transition-colors">
           Overview
         </button>
       </div>
@@ -29,4 +28,4 @@ const EnterpriseCTA = () => {
   );
 };
 
-export default EnterpriseCTA;
+export default EnterpriseCTANew;

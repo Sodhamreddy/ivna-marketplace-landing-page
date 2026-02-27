@@ -12,8 +12,17 @@ const ContactForm = () => {
   });
 
   return (
-    <section className="py-20 bg-white">
-      <div className="w-full max-w-[1440px] mx-auto px-6 xl:px-16">
+    <section className="py-20 bg-[#F2F2F7] relative overflow-hidden">
+
+      {/* form bg image - sits at section level, BEHIND the white card */}
+      <img
+        src="/images/form bg.png"
+        alt=""
+        className="absolute inset-0 w-full h-full object-contain pointer-events-none opacity-60"
+      />
+
+      <div className="w-full max-w-[1440px] mx-auto px-6 xl:px-16 relative z-10">
+
         {/* Heading */}
         <div className="text-center mb-12">
           <h2
@@ -28,7 +37,7 @@ const ContactForm = () => {
           </p>
         </div>
 
-        {/* Form Card */}
+        {/* Form Card - white background sits ON TOP of the wave bg image */}
         <div className="max-w-4xl mx-auto bg-white border border-gray-200 rounded-2xl p-6 md:p-10 shadow-sm">
           <div className="grid md:grid-cols-2 gap-4">
             <input
@@ -88,6 +97,7 @@ const ContactForm = () => {
             Submit
           </button>
         </div>
+
       </div>
     </section>
   );
