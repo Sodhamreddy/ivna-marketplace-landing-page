@@ -1,85 +1,124 @@
-const products = [
+// ProductsGrid - "Everything Your Business Needs, In One Place" section
+// Top row: 4 photo cards, Bottom row: 4 brand cards
+
+const topRowProducts = [
   {
-    name: "Voica AI",
-    image: "https://ivna.ai/sections/voicaai.png",
-    color: "from-blue-500/10 to-purple-500/10",
+    image: "/images/Rectangle 116.png",
+    alt: "Caregiver Onboarding",
+    badge: "/images/Rectangle 149.png",
+    badgeAlt: "Caregiver Onboarding Badge",
   },
   {
-    name: "Pulseboard",
-    image: "https://ivna.ai/sections/pulse.png",
-    color: "from-orange-500/10 to-yellow-500/10",
+    image: "/images/Rectangle 117.png",
+    alt: "Client Assessment",
+    badge: "/images/Rectangle 108.png",
+    badgeAlt: "Client Assessment Badge",
   },
   {
-    name: "Caregiver Onboarding",
-    image: "https://ivna.ai/sections/caregiver.png",
-    color: "from-green-500/10 to-teal-500/10",
+    image: "/images/Rectangle 118.png",
+    alt: "VoicaAI",
+    badge: "/images/Voica_04-11 1.png",
+    badgeAlt: "VoicaAI Badge",
   },
   {
-    name: "Client Assessment",
-    image: "https://ivna.ai/sections/client.png",
-    color: "from-pink-500/10 to-red-500/10",
+    image: "/images/Rectangle 148.png",
+    alt: "Pulse Board",
+    badge: "/images/Pulseboard-02 1.png",
+    badgeAlt: "Pulseboard Badge",
+  },
+];
+
+const bottomRowProducts = [
+  {
+    image: "/images/Rectangle 150.png",
+    alt: "Caregiver Onboarding Brand",
   },
   {
-    name: "Chatbot",
-    image: "https://ivna.ai/sections/chatbot.png",
-    color: "from-cyan-500/10 to-blue-500/10",
+    image: "/images/Rectangle 151.png",
+    alt: "Chatbot",
   },
   {
-    name: "Voica AI Pro",
-    image: "https://ivna.ai/sections/voicaai.png",
-    color: "from-indigo-500/10 to-violet-500/10",
+    image: "/images/Rectangle 152.png",
+    alt: "VoicaAI Brand",
   },
   {
-    name: "Pulse Board",
-    image: "https://ivna.ai/sections/pulse.png",
-    color: "from-amber-500/10 to-orange-500/10",
-  },
-  {
-    name: "Smart Analytics",
-    image: "https://ivna.ai/sections/decision.png",
-    color: "from-emerald-500/10 to-green-500/10",
+    image: "/images/Rectangle 153.png",
+    alt: "Pulse Board Brand",
   },
 ];
 
 const ProductsGrid = () => {
   return (
-    <section className="py-16 bg-surface-warm">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-10">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+    <section className="py-20 bg-[#F0F6FF]">
+      <div className="w-full max-w-[1440px] mx-auto px-6 xl:px-16">
+        {/* Heading */}
+        <div className="text-center mb-12">
+          <h2
+            className="text-3xl md:text-4xl font-bold text-[#1D1F2D]"
+            style={{ fontFamily: 'Poppins, sans-serif' }}
+          >
             Everything Your Business Needs,{" "}
-            <span className="text-highlight">In One Place</span>
+            <span className="text-[#0052FF]">In One Place</span>
           </h2>
-          <p className="text-muted-foreground text-sm mt-2 max-w-lg mx-auto">
+          <p className="text-gray-500 text-sm md:text-base mt-4 max-w-2xl mx-auto">
             Specializations that empower teams, streamline processes, and drive smarter decisions
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-          {products.map((product, i) => (
+        {/* Top Row - Photo cards (4 col) */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-5">
+          {topRowProducts.map((product, i) => (
             <div
               key={i}
-              className="bg-card rounded-xl overflow-hidden card-hover cursor-pointer border border-border shadow-sm group"
+              className="rounded-2xl overflow-hidden cursor-pointer group relative shadow-sm border border-gray-100 aspect-[4/3]"
             >
-              <div className={`aspect-[4/3] bg-gradient-to-br ${product.color} flex items-center justify-center p-4`}>
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).style.display = 'none';
-                  }}
-                />
-              </div>
-              <div className="p-3 text-center">
-                <p className="text-xs font-semibold text-foreground">{product.name}</p>
-              </div>
+              <img
+                src={product.image}
+                alt={product.alt}
+                className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-300"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = 'https://placehold.co/400x300/e2e8f0/94a3b8?text=' + encodeURIComponent(product.alt);
+                }}
+              />
+              {/* Badge overlay at bottom-left */}
+              {product.badge && (
+                <div className="absolute bottom-3 left-3">
+                  <img
+                    src={product.badge}
+                    alt={product.badgeAlt}
+                    className="h-10 w-auto object-contain drop-shadow-lg"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).style.display = 'none';
+                    }}
+                  />
+                </div>
+              )}
             </div>
           ))}
         </div>
 
-        <div className="text-center mt-8">
-          <button className="border border-border bg-card hover:bg-secondary text-foreground px-6 py-2.5 rounded-lg text-sm font-medium transition-colors shadow-sm">
+        {/* Bottom Row - Brand cards (4 col) */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+          {bottomRowProducts.map((product, i) => (
+            <div
+              key={i}
+              className="rounded-2xl overflow-hidden cursor-pointer group relative shadow-sm border border-gray-100 aspect-[4/3]"
+            >
+              <img
+                src={product.image}
+                alt={product.alt}
+                className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-300"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = 'https://placehold.co/400x300/e2e8f0/94a3b8?text=' + encodeURIComponent(product.alt);
+                }}
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Know more button */}
+        <div className="text-center mt-10">
+          <button className="border border-gray-300 bg-white hover:bg-gray-50 text-gray-700 px-8 py-2.5 rounded-lg text-sm font-medium transition-colors shadow-sm">
             Know more
           </button>
         </div>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -15,7 +15,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 220 20% 15%;
 
-    --primary: 221 83% 53%;
+    --primary: 221 100% 50%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 210 40% 96%;
@@ -32,22 +32,9 @@
 
     --border: 214 32% 91%;
     --input: 214 32% 91%;
-    --ring: 221 83% 53%;
+    --ring: 221 100% 50%;
 
     --radius: 0.5rem;
-
-    /* Custom tokens */
-    --hero-gradient-start: 230 60% 15%;
-    --hero-gradient-mid: 240 50% 25%;
-    --hero-gradient-end: 260 55% 30%;
-    --highlight: 145 80% 42%;
-    --highlight-foreground: 0 0% 100%;
-    --surface-warm: 30 30% 97%;
-    --bundle-blue: 221 83% 53%;
-    --bundle-dark: 230 40% 20%;
-    --category-red: 0 75% 55%;
-    --category-green: 145 60% 45%;
-    --category-blue: 221 83% 53%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -64,42 +51,56 @@
   * {
     @apply border-border;
   }
+
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-background text-foreground;
     font-family: 'Inter', sans-serif;
   }
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: 'Poppins', sans-serif;
   }
 }
 
 @layer components {
   .hero-gradient {
-    background: linear-gradient(135deg, 
-      hsl(var(--hero-gradient-start)) 0%, 
-      hsl(var(--hero-gradient-mid)) 50%, 
-      hsl(var(--hero-gradient-end)) 100%
-    );
+    background: url('/images/Overlay+Blur.png') center/cover no-repeat,
+      linear-gradient(135deg, #1a0533 0%, #2d1060 30%, #1e3a8a 70%, #1e40af 100%);
   }
-  .bundle-gradient-blue {
-    background: linear-gradient(135deg, hsl(221 83% 53%) 0%, hsl(240 60% 45%) 100%);
-  }
-  .bundle-gradient-dark {
-    background: linear-gradient(135deg, hsl(230 40% 20%) 0%, hsl(250 35% 30%) 100%);
-  }
-  .search-glow {
-    box-shadow: 0 0 20px hsl(var(--primary) / 0.2);
-  }
+
   .card-hover {
     @apply transition-all duration-300;
   }
+
   .card-hover:hover {
     @apply shadow-lg -translate-y-1;
   }
-  .wave-bg {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23f8fafc' fill-opacity='0.3' d='M0,192L48,176C96,160,192,128,288,133.3C384,139,480,181,576,197.3C672,213,768,203,864,181.3C960,160,1056,128,1152,128C1248,128,1344,160,1392,176L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: bottom;
-    background-size: cover;
+
+  /* Smooth scroll */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f5f9;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
   }
 }

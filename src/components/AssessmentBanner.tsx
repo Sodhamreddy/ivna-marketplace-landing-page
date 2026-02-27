@@ -1,48 +1,60 @@
+// AssessmentBanner - "Deliver Better Care Through Clear Assessments" section
+// Light gradient background, text on left, device mockup on right
+
 const AssessmentBanner = () => {
   return (
-    <section className="py-12 bg-background">
-      <div className="container mx-auto px-4">
-        <div className="max-w-5xl mx-auto rounded-2xl overflow-hidden relative" style={{
-          background: 'linear-gradient(135deg, hsl(300 60% 95%) 0%, hsl(200 80% 92%) 50%, hsl(180 60% 90%) 100%)'
-        }}>
-          <div className="grid md:grid-cols-2 gap-6 p-8 md:p-12 items-center">
+    <section className="py-16 bg-white">
+      <div className="w-full max-w-[1440px] mx-auto px-6 xl:px-16">
+        <div
+          className="w-full rounded-3xl overflow-hidden"
+          style={{
+            background: 'linear-gradient(135deg, #e8d5f5 0%, #d0e8ff 50%, #c8f0f0 100%)',
+          }}
+        >
+          <div className="grid md:grid-cols-2 items-center">
             {/* Left Content */}
-            <div>
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground leading-tight mb-3">
+            <div className="p-8 md:p-12 lg:p-16">
+              {/* Pulseboard badge */}
+              <div className="flex items-center gap-3 mb-5">
+                <img
+                  src="/images/Pulseboard-02 1.png"
+                  alt="Pulse Board"
+                  className="h-12 w-auto object-contain"
+                  onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                />
+                <div>
+                  <div className="font-black text-[#1D1F2D] text-lg leading-tight" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                    PULSE BOARD
+                  </div>
+                  <div className="text-xs text-gray-500">Powered by KLEZA</div>
+                </div>
+              </div>
+
+              <h2
+                className="text-2xl md:text-3xl font-bold text-[#1D1F2D] leading-tight mb-4"
+                style={{ fontFamily: 'Poppins, sans-serif' }}
+              >
                 Deliver Better Care Through Clear Assessments
               </h2>
-              <p className="text-muted-foreground text-sm mb-6 leading-relaxed">
+              <p className="text-gray-600 text-sm leading-relaxed mb-7">
                 Connect with us and learn how PulseBoard can give your business the edge.
+                Transform your home care assessments with AI-powered insights.
               </p>
-              <button className="border-2 border-foreground text-foreground px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-foreground hover:text-primary-foreground transition-colors">
+              <button className="border-2 border-[#1D1F2D] text-[#1D1F2D] hover:bg-[#1D1F2D] hover:text-white px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200">
                 Know more
               </button>
             </div>
 
-            {/* Right - Device mockups with badge */}
-            <div className="relative flex justify-center items-center">
-              {/* 50% OFF Badge */}
-              <div className="absolute -top-2 right-4 md:right-12 z-20 w-20 h-20 rounded-full flex flex-col items-center justify-center shadow-lg" style={{
-                background: 'linear-gradient(135deg, hsl(15 90% 60%) 0%, hsl(0 85% 55%) 100%)'
-              }}>
-                <span className="text-primary-foreground font-bold text-lg leading-none">50%</span>
-                <span className="text-primary-foreground font-bold text-sm leading-none">OFF</span>
-                <span className="text-primary-foreground/70 text-[8px]">*Conditions apply</span>
-              </div>
-
-              {/* Device mockups placeholder */}
-              <div className="flex items-end gap-2">
-                <div className="w-32 h-56 bg-foreground/10 rounded-xl border-2 border-foreground/20 flex items-center justify-center">
-                  <div className="w-24 h-44 bg-card rounded-lg shadow-inner flex items-center justify-center">
-                    <span className="text-muted-foreground text-[10px] text-center">Dashboard<br/>Preview</span>
-                  </div>
-                </div>
-                <div className="w-24 h-44 bg-foreground/10 rounded-xl border-2 border-foreground/20 flex items-center justify-center">
-                  <div className="w-18 h-36 bg-card rounded-lg shadow-inner flex items-center justify-center">
-                    <span className="text-muted-foreground text-[10px] text-center">Mobile<br/>View</span>
-                  </div>
-                </div>
-              </div>
+            {/* Right - Device mockup */}
+            <div className="relative flex justify-center items-center p-6 md:p-0">
+              <img
+                src="/images/Group 166.jpg"
+                alt="Device Assessments Mockup"
+                className="w-full h-auto object-contain max-w-md mx-auto"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = 'https://placehold.co/500x380/c8deff/2563EB?text=Device+Mockup';
+                }}
+              />
             </div>
           </div>
         </div>
