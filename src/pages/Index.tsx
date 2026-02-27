@@ -3,6 +3,10 @@ import HeroSection from "@/components/HeroSection";
 import ProductsGrid from "@/components/ProductsGrid";
 import BundlesSection from "@/components/BundlesSection";
 import CategoriesSection from "@/components/CategoriesSection";
+import AssessmentBanner from "@/components/AssessmentBanner";
+import BrowseProducts from "@/components/BrowseProducts";
+import EnterpriseCTA from "@/components/EnterpriseCTA";
+import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -13,6 +17,10 @@ const Index = () => {
       <ProductsGrid />
       <BundlesSection />
       <CategoriesSection />
+      <AssessmentBanner />
+      <BrowseProducts />
+      <EnterpriseCTA />
+      <ContactForm />
       <Footer />
     </div>
   );
